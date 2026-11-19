@@ -1,0 +1,61 @@
+// Site-wide settings and page metadata. Edit this file to change brand details.
+export const site = {
+  name: 'Lavanya Digital',
+  url: 'https://www.example.com',
+  ogImage: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&h=630&q=70',
+  email: 'hello@example.com',
+  phone: '+91 98765 43210',
+  whatsapp: '919876543210',
+  address: { street: '42 MG Road', city: 'Bengaluru', region: 'Karnataka', postal: '560001', country: 'IN' },
+  nav: [
+    { href: '/', label: 'Home' },
+    { href: '/about/', label: 'About' },
+    { href: '/services/', label: 'Services' },
+    { href: '/portfolio/', label: 'Portfolio' },
+    { href: '/blog/', label: 'Blog' },
+    { href: '/contact/', label: 'Contact' },
+  ],
+  organizationLd(url) {
+    return {
+      '@context': 'https://schema.org',
+      '@type': 'ProfessionalService',
+      name: this.name,
+      url,
+      logo: `${url}/img/logo.svg`,
+      image: this.ogImage,
+      email: this.email,
+      telephone: this.phone,
+      address: {
+        '@type': 'PostalAddress',
+        streetAddress: this.address.street,
+        addressLocality: this.address.city,
+        addressRegion: this.address.region,
+        postalCode: this.address.postal,
+        addressCountry: this.address.country,
+      },
+      openingHours: 'Mo-Fr 09:30-18:30, Sa 10:00-14:00',
+      sameAs: ['https://www.linkedin.com/', 'https://www.instagram.com/', 'https://x.com/'],
+    };
+  },
+};
+
+export const pages = [
+  { path: '/', file: 'home.html', title: 'Lavanya Digital | Websites & Digital Marketing that Grow Your Business',
+    description: 'Lavanya Digital builds fast websites, brands and marketing campaigns that turn visitors into customers for growing businesses across India.' },
+  { path: '/about/', file: 'about.html', title: 'About Us | Lavanya Digital',
+    description: 'Meet the Lavanya Digital team, our story, mission, vision and the milestones behind 500+ successful client projects.' },
+  { path: '/services/', file: 'services.html', title: 'Services & Pricing | Lavanya Digital',
+    description: 'Web design, development, SEO, branding and digital marketing services with transparent pricing plans and answers to common questions.' },
+  { path: '/portfolio/', file: 'portfolio.html', title: 'Portfolio | Lavanya Digital',
+    description: 'Browse websites, brands and marketing campaigns Lavanya Digital has delivered for clients in retail, healthcare, education and more.' },
+  { path: '/blog/', file: 'blog.html', title: 'Blog | Lavanya Digital',
+    description: 'Practical articles on web design, SEO and digital marketing for small business owners.' },
+  { path: '/contact/', file: 'contact.html', title: 'Contact Us | Lavanya Digital',
+    description: 'Get a free quote from Lavanya Digital. Call, WhatsApp, email or send us a message and we will reply within one business day.' },
+  { path: '/privacy-policy/', file: 'privacy.html', title: 'Privacy Policy | Lavanya Digital',
+    description: 'How Lavanya Digital collects, uses and protects your personal information.' },
+  { path: '/terms/', file: 'terms.html', title: 'Terms & Conditions | Lavanya Digital',
+    description: 'The terms and conditions for using the Lavanya Digital website and services.' },
+  { path: '/404', output: '404.html', file: '404.html', title: 'Page Not Found | Lavanya Digital',
+    description: 'The page you are looking for could not be found.', noindex: true },
+];

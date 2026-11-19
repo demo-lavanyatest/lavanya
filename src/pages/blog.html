@@ -1,0 +1,28 @@
+    <section class="page-hero">
+      <div class="container narrow">
+        <p class="eyebrow">Blog</p>
+        <h1>Ideas to grow your business online</h1>
+        <p class="lead">Practical, jargon-free advice on websites, SEO and marketing.</p>
+      </div>
+    </section>
+
+    <section class="section" aria-label="Articles">
+      <div class="container">
+        <div class="blog-tools">
+          <label class="sr-only" for="blog-search">Search articles</label>
+          <input id="blog-search" type="search" placeholder="Search articles…" autocomplete="off">
+          <div class="filters" role="group" aria-label="Filter by category">
+            <button class="chip" type="button" data-filter="all" aria-pressed="true">All</button>
+            <button class="chip" type="button" data-filter="Web Design" aria-pressed="false">Web Design</button>
+            <button class="chip" type="button" data-filter="SEO" aria-pressed="false">SEO</button>
+            <button class="chip" type="button" data-filter="Branding" aria-pressed="false">Branding</button>
+            <button class="chip" type="button" data-filter="Marketing" aria-pressed="false">Marketing</button>
+          </div>
+        </div>
+        <p class="results-status" role="status" aria-live="polite"></p>
+        <div class="grid grid-3 post-list" data-page-size="6">
+{{postCards}}
+        </div>
+        <nav class="pagination" aria-label="Blog pages"></nav>
+      </div>
+    </section>
