@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TMS – Specification Approval</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <h1>Specification Approval</h1>
+    <form id="user-form" class="user" aria-label="Current user">
+      <label>Name <input id="user-name" required maxlength="60"></label>
+      <label>Role
+        <select id="user-role">
+          <option>Author</option>
+          <option>Approver</option>
+        </select>
+      </label>
+      <button type="submit">Switch user</button>
+    </form>
+  </header>
+
+  <div id="alert" class="alert" role="alert" aria-live="assertive" hidden></div>
+
+  <main class="layout">
+    <section class="panel" aria-labelledby="list-heading">
+      <div class="panel-head">
+        <h2 id="list-heading">Specifications</h2>
+        <button id="new-spec" type="button">New specification</button>
+      </div>
+      <ul id="spec-list" class="spec-list"></ul>
+      <p id="empty-list" class="muted">No specifications yet.</p>
+    </section>
+
+    <section class="panel" aria-live="polite">
+      <form id="spec-form" hidden novalidate>
+        <h2 id="form-heading">New specification</h2>
+        <label for="spec-title">Title</label>
+        <input id="spec-title" maxlength="200" aria-describedby="title-error">
+        <p id="title-error" class="field-error"></p>
+        <label for="spec-req">Requirements</label>
+        <textarea id="spec-req" rows="10" aria-describedby="requirements-error"></textarea>
+        <p id="requirements-error" class="field-error"></p>
+        <div class="actions">
+          <button type="submit">Save</button>
+          <button type="button" id="cancel-edit" class="secondary">Cancel</button>
+        </div>
+      </form>
+
+      <article id="detail" hidden>
+        <div class="panel-head">
+          <h2 id="d-title"></h2>
+          <span id="d-status" class="badge"></span>
+        </div>
+        <p class="muted" id="d-meta"></p>
+
+        <div id="d-compare" class="compare">
+          <div id="d-approved-box" hidden>
+            <h3>Previously approved</h3>
+            <pre id="d-approved"></pre>
+          </div>
+          <div>
+            <h3>Requirements</h3>
+            <pre id="d-req"></pre>
+          </div>
+        </div>
+
+        <div class="actions">
+          <button type="button" id="act-edit" class="secondary">Edit</button>
+          <button type="button" id="act-submit">Submit for approval</button>
+        </div>
+
+        <div id="review" class="review" hidden>
+          <label for="review-comment">Comment (required to reject)</label>
+          <textarea id="review-comment" rows="3" aria-describedby="comment-error"></textarea>
+          <p id="comment-error" class="field-error"></p>
+          <div class="actions">
+            <button type="button" id="act-approve" class="ok">Approve</button>
+            <button type="button" id="act-reject" class="danger">Reject</button>
+          </div>
+        </div>
+
+        <h3>History</h3>
+        <ol id="d-history" class="history"></ol>
+      </article>
+
+      <p id="placeholder" class="muted">Select a specification or create a new one.</p>
+    </section>
+  </main>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
